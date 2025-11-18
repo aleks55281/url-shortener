@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Сокращатель ссылок</title>
+    <style>
+        /*
+         * 1. Настройка фона
+         * Убедитесь, что ваш Go-сервер правильно отдает этот файл как 'image/webp'!
+         */
+        body {
+            background-image: url('/static/img/img_1.png');
+            background-size: contain;
+            background-color: #000000;
+            background-position: center center; /* Центрируем по верху, чтобы человек был виден */
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-repeat: no-repeat;
+
+            display: flex; /* Используем Flexbox для центрирования всего содержимого */
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start; /* Начинаем сверху */
+        }
+
+        /* * 2. Контейнер формы - позиционируем точно на месте рта
+         * Эти значения могут потребовать небольшой корректировки
+         * в зависимости от разрешения вашего экрана.
+         */
+        .form-container {
+            /* * Рассчитываем, чтобы строка была в центре экрана,
+             * на уровне, где находится рот (примерно 45% сверху).
+             */
+            position: absolute;
+            top: 50.5%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* Точное центрирование контейнера */
+            width: 80%; /* Занимает 80% ширины экрана */
+            max-width: 500px; /* Максимальная ширина строки */
+            padding: 0;
+        }
+
+        /* 3. Стиль поля ввода */
+        input[type="url"] {
+            width: 100%;
+            height: 57px;
+            padding: 12px 20px;
+            border: 2px solid #007bff; /* Яркая синяя рамка, как у поисковой строки */
+            border-radius: 25px; /* Скругленные углы */
+            font-size: 18px;
+            box-sizing: border-box;
+            background: white; /* Полупрозрачный фон */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Легкая тень для выделения */
+            text-align: center; /* Центрируем текст внутри */
+        }
+
+        /* 4. Стиль кнопки - размещаем ее ниже */
+        button {
+            background: #007bff;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px; /* Скругленные углы */
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px; /* Отступ от поля ввода */
+            box-shadow: 0 4px 10px rgba(0, 123, 255, 0.5);
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+    </style>
+</head>
+<body>
+<div class="form-container">
+    <form method="POST" action="/shorten">
+        <input type="url" name="url" placeholder="Покорми Вадима ссылочкой..." required>
+
+        <button type="submit">Сократить ссылку</button>
+    </form>
+</div>
+</body>
+</html>
